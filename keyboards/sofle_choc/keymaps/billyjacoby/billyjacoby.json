@@ -61,7 +61,7 @@
             "LGUI_T(KC_SPC)",
             "LT(1, KC_ENT)",
             "MO(2)",
-            "KC_RCTL",
+            "KC_GRAVE",
             "KC_RALT",
             "KC_RBRC"
         ],
