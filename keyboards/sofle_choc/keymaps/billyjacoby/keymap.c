@@ -42,15 +42,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT(
         KC_EQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                          EMOJI_KEY, KC_NO, KC_F12, KC_NO, KC_NO, KC_NO, 
     KC_PLUS, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,  LCTL(KC_LEFT),                                  LCTL(KC_RIGHT), KC_NO, KC_UP, KC_NO, KC_NO, KC_EQL,
-    KC_TRNS, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_NO,                                  KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_GRV, 
+    KC_TRNS, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_LBRC,                                  KC_RBRC, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_GRV, 
         KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_TRNS,            KC_TRNS, KC_NO, KC_NO, KC_NO, ARROW_FUNC, KC_NO, KC_NO,
-        KC_TRNS,  KC_TRNS, KC_TRNS, MO(3), KC_TRNS,                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        KC_TRNS,  KC_TRNS, KC_TRNS, MO(3), KC_TRNS,                                         KC_TRNS, MO(3), KC_TRNS, KC_TRNS, KC_TRNS
         ),
 
     [2] = LAYOUT(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                      EMOJI_KEY, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
         KC_PLUS, KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_LEFT),                                      LCTL(KC_RIGHT), KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, 
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                       KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, 
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LBRC,                                       KC_RBRC, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, 
+        KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,                KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+                  KC_TRNS, KC_TRNS, KC_TRNS, MO(3), KC_TRNS,                  KC_TRNS, MO(3), KC_TRNS, KC_TRNS, KC_TRNS
+        ),
+
+    [3] = LAYOUT(
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                      EMOJI_KEY, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+        KC_PLUS, KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_LEFT),                                      LCTL(KC_RIGHT), KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, 
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSFT(KC_LBRC),                                       LSFT(KC_RBRC), KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, 
         KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,                KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
         )};
@@ -240,6 +248,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [0] = {ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_VOLU, KC_VOLD)},
     [1] = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(LGUI(LSFT(KC_Z)), LGUI(KC_Z))},
     [2] = {ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SPI, RGB_SPD)},
+    [3] = {ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SPI, RGB_SPD)},
 };
 #endif
 
