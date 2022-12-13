@@ -22,13 +22,38 @@ enum sofle_layers {
     _ADJUST,
 };
 
-enum custom_keycodes { KC_LOWER = SAFE_RANGE, KC_RAISE, KC_ADJUST, KC_PRVWD, KC_NXTWD, KC_LSTRT, KC_LEND, KC_DLINE };
+enum custom_keycodes { KC_LOWER = SAFE_RANGE, KC_RAISE, KC_ADJUST, KC_PRVWD, KC_NXTWD, KC_LSTRT, KC_LEND, KC_DLINE, 
+RAYCAST_SHORTCUT, 
+EMOJI_KEY,
+CMD_Z, CMD_SHIFT_Z,ARROW_FUNC
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [0] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINS, KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, QK_MACRO_0, QK_MACRO_0, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_LBRC, KC_LGUI, KC_LALT, MO(1), LGUI_T(KC_SPC), LT(1, KC_ENT), MO(2), KC_GRAVE, KC_RALT, KC_RBRC),
-    [1] = LAYOUT(KC_EQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F12, KC_NO, KC_NO, KC_NO, KC_PLUS, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_EQL, KC_TRNS, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_GRV, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(3), KC_TRNS, KC_TRNS, KC_TRNS),
-    [2] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, MO(3), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)};
+    [0] = LAYOUT(
+        KC_ESC,    KC_1,     KC_2,     KC_3,     KC_4, KC_5,                                KC_6,   KC_7,     KC_8,     KC_9,   KC_0,       KC_BSPC, 
+        KC_TAB,    KC_Q,     KC_W,     KC_E,     KC_R, KC_T,                                KC_Y,   KC_U,     KC_I,     KC_O,   KC_P,       KC_MINS, 
+        KC_LSFT,   KC_A,     KC_S,     KC_D,     KC_F, KC_G,                                KC_H,   KC_J,     KC_K,     KC_L,   KC_SCLN,    KC_QUOT, 
+        KC_LCTL,   KC_Z,     KC_X,     KC_C,     KC_V, KC_B, RAYCAST_SHORTCUT,    RAYCAST_SHORTCUT,     KC_N,   KC_M,     KC_COMM,  KC_DOT, KC_SLSH,    KC_BSLS, 
+        KC_LBRC,   KC_LGUI,  KC_LALT,  MO(1),    LGUI_T(KC_SPC),            LT(1, KC_ENT),  MO(2),  KC_GRAVE, KC_RALT,  KC_RBRC
+        ),
+
+
+    [1] = LAYOUT(
+        KC_EQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                          EMOJI_KEY, KC_NO, KC_F12, KC_NO, KC_NO, KC_NO, 
+    KC_PLUS, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,  LCTL(KC_LEFT),                                  LCTL(KC_RIGHT), KC_NO, KC_UP, KC_NO, KC_NO, KC_EQL,
+    KC_TRNS, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_NO,                                  KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_GRV, 
+        KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_TRNS,            KC_TRNS, KC_NO, KC_NO, KC_NO, ARROW_FUNC, KC_NO, KC_NO,
+        KC_TRNS,  KC_TRNS, KC_TRNS, MO(3), KC_TRNS,                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        ),
+
+    [2] = LAYOUT(
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                      EMOJI_KEY, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+        KC_PLUS, KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_LEFT),                                      LCTL(KC_RIGHT), KC_NO, KC_UP, KC_NO, KC_NO, KC_NO, 
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                       KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, 
+        KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,                KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        )};
 
 // Sets default effect and color
 #ifdef RGBLIGHT_ENABLE
@@ -41,9 +66,19 @@ void keyboard_post_init_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
-        case QK_MACRO_0:
+        case RAYCAST_SHORTCUT:
             if (record->event.pressed) {
                 SEND_STRING(SS_LGUI(" "));
+                return false;
+            }
+        case EMOJI_KEY:
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_LCTL) SS_LGUI(" ") SS_UP(X_LCTL));
+                return false;
+            }
+        case ARROW_FUNC:
+            if (record->event.pressed) {
+                SEND_STRING("=>");
                 return false;
             }
         case KC_LOWER:
@@ -203,8 +238,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [0] = {ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_VOLU, KC_VOLD)},
-    [1] = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(RGB_SAD, RGB_SAI)},
-    [2] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI), ENCODER_CCW_CW(RGB_SPD, RGB_SPI)},
+    [1] = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(LGUI(LSFT(KC_Z)), LGUI(KC_Z))},
+    [2] = {ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SPI, RGB_SPD)},
 };
 #endif
 
