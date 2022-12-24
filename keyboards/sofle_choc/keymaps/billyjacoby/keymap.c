@@ -245,10 +245,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] = {ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_VOLU, KC_VOLD)},
-    [1] = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(LGUI(LSFT(KC_Z)), LGUI(KC_Z))},
-    [2] = {ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SPI, RGB_SPD)},
-    [3] = {ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SPI, RGB_SPD)},
+    [0] = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN ), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+    [1] = {ENCODER_CCW_CW(RGB_HUI, RGB_HUD ), ENCODER_CCW_CW(LGUI(KC_Z), LGUI(LSFT(KC_Z)))},
+    [2] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI), ENCODER_CCW_CW(RGB_SPD, RGB_SPI)},
+    [3] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI), ENCODER_CCW_CW(RGB_SPD, RGB_SPI)},
 };
 #endif
 
@@ -266,7 +266,7 @@ void write_int_ln(const char* prefix, uint8_t value) {
 }
 
 static void print_status_narrow(void) {
-    oled_write_ln_P(PSTR("SofleChoc _____"), false);
+    oled_write_ln_P(PSTR("soflechoc _____"), false);
 
     if (get_highest_layer(layer_state) == _ADJUST) {
         uint8_t mode  = rgb_matrix_get_mode();
@@ -299,13 +299,13 @@ static void print_status_narrow(void) {
     // Print current layer
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Alpha"), false);
+            oled_write_P(PSTR("main"), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("Nav  "), false);
+            oled_write_P(PSTR("lower  "), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("Sym  "), false);
+            oled_write_P(PSTR("raise  "), false);
             break;
         case _ADJUST:
             oled_write_P(PSTR("Adj  "), false);
